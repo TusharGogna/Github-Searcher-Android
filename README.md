@@ -3,7 +3,7 @@ This is a test repository created as per the requirments laid down by SmartOne t
 
 ###### The application uses the following components:
 1. [Kotlin](https://kotlinlang.org/) as the base language.
-2. [Retrofit]([https://developer.android.com/training/data-storage/room](https://square.github.io/retrofit/)) to fetch data from API.
+2. [Retrofit](https://square.github.io/retrofit/) to fetch data from API.
 3. [Dagger Hilt](https://dagger.dev/hilt/) as Dependency Injector.
 4. [MVVM](https://developer.android.com/topic/architecture) with Clean architecture.
 5. [Jetpack Compose](https://developer.android.com/jetpack/compose) for UI.
