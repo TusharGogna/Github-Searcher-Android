@@ -39,4 +39,7 @@ This is the first screen which is displayed to the user. The Repository list is 
 <img src="https://github.com/TusharGogna/Github-Api-Demo-SmartOne/assets/36148180/e829ce1d-18c7-4e50-884d-dac11b474ebb" width=50% height=50%>
 
 This is a repository details screen. In this, you can scroll the properties related to the repository and view the things such as stars, forks, language used along with 2 aforementioned buttons
+
+
+Note: The application is tested on Pixel 6 running Android 14
    
