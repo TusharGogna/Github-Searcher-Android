@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">SmartOne_Git_Demo</string>
+    <string name="button_search">Search</string>
+    <string name="empty_string"> </string>
+    <string name="user_image_description">User\'s Git Display Image</string>
+    <string name="input_text_error_icon">Input Text Error Icon</string>
+    <string name="empty_string_is_not_allowed">Empty string is not allowed.</string>
+    <string name="enter_userid">Enter UserId</string>
+    <string name="txt_label_github_userid">Enter Github UserId</string>
+    <string name="default_userId">TusharGogna</string>
+    <string name="title_activity_user_repository">UserRepositoryActivity</string>
+    <string name="loading">Loading…</string>
+    <string name="title_repositories">Repositories</string>
+    <string name="star_icon">Star Icon</string>
+
+    <string name="error_network_issue">Unable to fetch data. Try again later.</string>
+    <string name="error_no_repository">User Has No Repository!!!</string>
+    <string name="error_no_user">Entered UserId is not available!</string>
+    <string name="no_desc_placeholder">N/A</string>
+    <string name="title_home_page">Github Searcher</string>
+    <string name="btn_go_back">Go Back</string>
+    <string name="btn_visit_repository">Visit Repository</string>
+    <string name="error_unknown_issue">An unknown error occurred</string>
+    <string name="search_text_field_tag">SEARCH_TEXT_FIELD_TAG</string>
+    <string name="user_card_test_tag">USER_CARD_TEST_TAG</string>
+    <string name="loader_tag">LOADER_TAG</string>
+
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.SplashScreen.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/smart_one_primary</item>
+        <item name="postSplashScreenTheme">@style/Theme.SmartOne_Git_Demo</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/animated_splash_icon</item>
+    </style>
+</resources>
