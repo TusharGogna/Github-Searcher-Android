@@ -88,8 +88,8 @@ class DetailsScreenTest {
         }
         composeTestRule.onNodeWithTag(composeTestRule.activity.getString(R.string.search_text_field_tag))
             .performTextInput(composeTestRule.activity.getString(R.string.default_userId))
-        composeTestRule.onNodeWithText("Search").performClick()
-        composeTestRule.onNodeWithText("Empty string is not allowed.").assertDoesNotExist()
+        composeTestRule.onNodeWithText(composeTestRule.activity.getString(R.string.button_search)).performClick()
+        composeTestRule.onNodeWithText(composeTestRule.activity.getString(R.string.error_empty_string)).assertDoesNotExist()
     }
 
     @Test

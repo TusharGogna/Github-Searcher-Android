@@ -58,7 +58,7 @@ fun UserIdInputField(onSearch: (input: String) -> Unit) {
                 if (isError)
                     Icon(
                         Icons.Filled.Warning,
-                        stringResource(R.string.input_text_error_icon),
+                        stringResource(R.string.cd_input_text_error),
                         tint = MaterialTheme.colorScheme.error
                     )
             },
@@ -66,7 +66,7 @@ fun UserIdInputField(onSearch: (input: String) -> Unit) {
                 if (isError) {
                     Text(
                         modifier = Modifier.fillMaxWidth(),
-                        text = stringResource(R.string.empty_string_is_not_allowed),
+                        text = stringResource(R.string.error_empty_string),
                         color = MaterialTheme.colorScheme.error
                     )
                 }
