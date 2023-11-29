@@ -1,6 +1,8 @@
 # Github-Api-Demo-SmartOne
 This is a test repository created as per the requirments laid down by SmartOne team.
 
+## <a href="https://github.com/TusharGogna/Github-Api-Demo-SmartOne/raw/main/app-debug.apk" download>Click to Download the APK file</a>
+
 ###### The application uses the following components:
 1. [Kotlin](https://kotlinlang.org/) as the base language.
 2. [Retrofit](https://square.github.io/retrofit/) to fetch data from API.
