@@ -6,7 +6,6 @@ plugins {
     id("kotlin-android")
     id("kotlin-parcelize")
     id("org.jetbrains.kotlin.plugin.serialization")
-
 }
 
 android {

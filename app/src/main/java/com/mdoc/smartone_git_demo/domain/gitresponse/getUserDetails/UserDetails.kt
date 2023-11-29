@@ -11,7 +11,7 @@ avatar_url is a String type parameter which is nullable as the use might not hav
 */
 @Serializable
 data class UserDetails(
-    @SerializedName("user_name") val name: String?,
-    @SerializedName("user_login") val login: String,
+    @SerializedName("name") val name: String?,
+    @SerializedName("login") val login: String,
     @SerializedName("avatar_url") val avatar_url: String?
 )
