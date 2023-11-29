@@ -44,7 +44,7 @@ fun RepositoryDetailsScreen(
     modifier: Modifier
 ) {
     var isDateShown by remember {
-        mutableStateOf(false)
+        mutableStateOf(true)
     }
 
     Column(

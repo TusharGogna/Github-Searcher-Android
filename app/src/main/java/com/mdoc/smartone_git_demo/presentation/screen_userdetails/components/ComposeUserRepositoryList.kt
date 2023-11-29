@@ -25,7 +25,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -132,11 +131,8 @@ private fun RepositoryItem(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .shadow(4.dp)
             .clickable {
-
                 val gson: Gson = GsonBuilder().create()
-
                 val repositoryItemJson = gson.toJson(repositoryItem)
                 navController.navigate(
                     NavigationScreenRoutes.Details.route +
@@ -162,7 +158,7 @@ private fun RepositoryItem(
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(2.dp))
             Text(
                 modifier = Modifier
                     .fillMaxWidth()
