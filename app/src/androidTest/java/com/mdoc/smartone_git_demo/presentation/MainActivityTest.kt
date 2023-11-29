@@ -1,14 +1,13 @@
 package com.mdoc.smartone_git_demo.presentation
 
+import android.content.Context
 import androidx.activity.compose.setContent
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
-import com.mdoc.smartone_git_demo.data.FakeUserDetailsRepositoryImpl
+import androidx.test.platform.app.InstrumentationRegistry
 import com.mdoc.smartone_git_demo.domain.UserDetailsRepository
 import com.mdoc.smartone_git_demo.domain.usecases.userdetails.GetSpecificGitUser
 import com.mdoc.smartone_git_demo.domain.usecases.userrepository.GetUserRepositories
@@ -21,6 +20,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import javax.inject.Inject
+import com.mdoc.smartone_git_demo.R
 
 @HiltAndroidTest
 class MainActivityTest {
@@ -39,12 +39,15 @@ class MainActivityTest {
     @get:Rule(order = 1)
     val composeTestRule = createAndroidComposeRule<MainActivity>()
 
+    private lateinit var context: Context
+
     @Before
     fun setUp() {
         hiltRule.inject()
         val getSpecificGitUser = GetSpecificGitUser(repository)
         val getUserRepositories = GetUserRepositories(repository)
         viewModel = UserDetailsViewModel(getSpecificGitUser, getUserRepositories, dispatcher)
+        context = InstrumentationRegistry.getInstrumentation().targetContext
     }
 
     @Test
@@ -56,7 +59,11 @@ class MainActivityTest {
             }
         }
 
-        composeTestRule.onNodeWithText("Search").assertIsDisplayed()
+        composeTestRule.onNodeWithText(context.getString(R.string.button_search)).assertIsDisplayed()
+        composeTestRule.onNodeWithText(context.getString(R.string.txt_idle_repositories))
+            .assertIsDisplayed()
+        composeTestRule.onNodeWithText(context.getString(R.string.txt_idle_user_details))
+            .assertIsDisplayed()
     }
 
 }

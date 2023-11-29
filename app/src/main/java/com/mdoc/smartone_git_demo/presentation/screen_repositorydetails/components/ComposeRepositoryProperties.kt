@@ -27,12 +27,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mdoc.smartone_git_demo.R
 import com.mdoc.smartone_git_demo.core.GitApplication
-import com.mdoc.smartone_git_demo.domain.gitresponse.getUserRepositories.UserRepositories
+import com.mdoc.smartone_git_demo.domain.models.Repositories
 import com.mdoc.smartone_git_demo.presentation.utils.SpecificRepositoryItems
 
 
 @Composable
-fun LoadRepositoryProperties(userRepositories: UserRepositories) {
+fun LoadRepositoryProperties(userRepositories: Repositories) {
 
     val repositoryData by remember {
         mutableStateOf(

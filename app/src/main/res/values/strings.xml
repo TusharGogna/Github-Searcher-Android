@@ -24,5 +24,7 @@
     <string name="search_text_field_tag">SEARCH_TEXT_FIELD_TAG</string>
     <string name="user_card_test_tag">USER_CARD_TEST_TAG</string>
     <string name="loader_tag">LOADER_TAG</string>
+    <string name="txt_idle_user_details">Search userId in order to get User Details</string>
+    <string name="txt_idle_repositories">Search userId to get list of repositories!</string>
 
 </resources>

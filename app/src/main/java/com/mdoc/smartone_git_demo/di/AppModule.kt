@@ -2,6 +2,7 @@ package com.mdoc.smartone_git_demo.di
 
 import android.app.Application
 import android.content.Context
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.mdoc.smartone_git_demo.core.GitApplication.Companion.BASE_URL
 import com.mdoc.smartone_git_demo.data.UserDetailsRepositoryImpl
 import com.mdoc.smartone_git_demo.data.remote.GitApi
@@ -14,10 +15,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 
@@ -29,15 +32,18 @@ object AppModule {
     @Provides
     fun provideContext(application: Application): Context = application.applicationContext
 
+    private val json = Json { ignoreUnknownKeys = true }
+
+    @OptIn(ExperimentalSerializationApi::class)
     @Provides
     @Singleton
     fun provideGitApi(): GitApi {
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
-
+        val contentType = "application/json".toMediaType()
         return Retrofit.Builder().baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(json.asConverterFactory(contentType))
             .client(client)
             .build()
             .create(GitApi::class.java)

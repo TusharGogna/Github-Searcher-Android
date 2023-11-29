@@ -19,7 +19,10 @@ fun DetailsScreen(
 ) {
     Column(modifier = modifier) {
         UserIdInputField(onSearch = {
+            // Method to fetch user details via /user/{userId}
             userDetailsViewModel.getGitUser(it)
+
+            // Method to fetch user repositories via /user/{userId}/repo
             userDetailsViewModel.getUserRepository(
                 it
             )

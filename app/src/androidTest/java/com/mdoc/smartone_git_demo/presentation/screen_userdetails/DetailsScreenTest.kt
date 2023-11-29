@@ -2,13 +2,10 @@ package com.mdoc.smartone_git_demo.presentation.screen_userdetails
 
 import androidx.activity.compose.setContent
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -21,11 +18,9 @@ import com.mdoc.smartone_git_demo.domain.usecases.userrepository.GetUserReposito
 import com.mdoc.smartone_git_demo.presentation.MainActivity
 import com.mdoc.smartone_git_demo.presentation.UserDetailsViewModel
 import com.mdoc.smartone_git_demo.presentation.ui.theme.SmartOne_Git_DemoTheme
-import com.mdoc.smartone_git_demo.presentation.utils.SetupNavigationGraph
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.CoroutineDispatcher
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -95,9 +90,7 @@ class DetailsScreenTest {
             .performTextInput(composeTestRule.activity.getString(R.string.default_userId))
         composeTestRule.onNodeWithText("Search").performClick()
         composeTestRule.onNodeWithText("Empty string is not allowed.").assertDoesNotExist()
-
     }
-
 
     @Test
     fun test_buttonClickedWithTextShowsLoader() {

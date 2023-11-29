@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.mdoc.smartone_git_demo.R
-import com.mdoc.smartone_git_demo.domain.gitresponse.getUserDetails.UserDetails
+import com.mdoc.smartone_git_demo.domain.models.GitAccountDetails
 import com.mdoc.smartone_git_demo.domain.states.GetUserDetailsState
 import com.mdoc.smartone_git_demo.domain.usecases.utils.ErrorTypes
 
@@ -60,7 +60,8 @@ fun UserDetailsCard(userDetailState: GetUserDetailsState) {
 
         is GetUserDetailsState.OnError -> {
             val errorText: String = when ((state as GetUserDetailsState.OnError).error) {
-                ErrorTypes.NETWORK_ERROR -> stringResource(R.string.empty_string)
+                ErrorTypes.NETWORK_ERROR -> (state as GetUserDetailsState.OnError).msg
+                    ?: stringResource(R.string.empty_string)
 
                 ErrorTypes.NO_REPOSITORIES_FOUND -> stringResource(R.string.error_no_repository)
 
@@ -89,11 +90,19 @@ fun UserDetailsCard(userDetailState: GetUserDetailsState) {
                 )
             }
         }
+
+        GetUserDetailsState.IsIdle -> {
+            Text(
+                modifier = modifier,
+                text = stringResource(R.string.txt_idle_user_details),
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
 
 @Composable
-private fun LoadUserDetailsCard(modifier: Modifier, state: UserDetails) {
+private fun LoadUserDetailsCard(modifier: Modifier, state: GitAccountDetails) {
     Column(
         modifier = modifier,
         horizontalAlignment = CenterHorizontally,

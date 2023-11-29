@@ -34,7 +34,7 @@ import androidx.navigation.NavHostController
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.mdoc.smartone_git_demo.R
-import com.mdoc.smartone_git_demo.domain.gitresponse.getUserRepositories.UserRepositories
+import com.mdoc.smartone_git_demo.domain.models.Repositories
 import com.mdoc.smartone_git_demo.domain.states.GetUserRepositoryState
 import com.mdoc.smartone_git_demo.domain.usecases.utils.ErrorTypes
 import com.mdoc.smartone_git_demo.presentation.utils.NavigationScreenRoutes
@@ -45,7 +45,7 @@ fun UserRepositoryListing(
     navController: NavHostController
 ) {
     var state by remember {
-        mutableStateOf<GetUserRepositoryState>(GetUserRepositoryState.IsLoading)
+        mutableStateOf<GetUserRepositoryState>(GetUserRepositoryState.IsIdle)
     }
     val modifier = Modifier
         .fillMaxWidth()
@@ -92,11 +92,19 @@ fun UserRepositoryListing(
                 navController
             )
         }
+
+        GetUserRepositoryState.IsIdle -> {
+            Text(
+                modifier = modifier,
+                text = stringResource(R.string.txt_idle_repositories),
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
 
 @Composable
-private fun LoadRepositories(userRepos: List<UserRepositories>, navController: NavHostController) {
+private fun LoadRepositories(userRepos: List<Repositories>, navController: NavHostController) {
     Text(
         modifier = Modifier
             .fillMaxWidth()
@@ -124,7 +132,7 @@ private fun LoadRepositories(userRepos: List<UserRepositories>, navController: N
 
 @Composable
 private fun RepositoryItem(
-    repositoryItem: UserRepositories,
+    repositoryItem: Repositories,
     navController: NavHostController
 ) {
     ElevatedCard(

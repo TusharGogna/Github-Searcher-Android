@@ -24,11 +24,11 @@ class UserDetailsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _userDetailsState =
-        MutableStateFlow<GetUserDetailsState>(GetUserDetailsState.IsLoading)
+        MutableStateFlow<GetUserDetailsState>(GetUserDetailsState.IsIdle)
     val userDetailsState = _userDetailsState.asStateFlow()
 
     private val _userRepositoryState =
-        MutableStateFlow<GetUserRepositoryState>(GetUserRepositoryState.IsLoading)
+        MutableStateFlow<GetUserRepositoryState>(GetUserRepositoryState.IsIdle)
     val userRepository = _userRepositoryState.asStateFlow()
 
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
@@ -47,6 +47,10 @@ class UserDetailsViewModel @Inject constructor(
 
     fun getGitUser(input: String) {
         viewModelScope.launch(dispatcher + coroutineExceptionHandler) {
+            _userDetailsState.emit(
+                GetUserDetailsState
+                    .IsLoading
+            )
             getSpecificGitUser.invoke(input).let { userDetailsResponse ->
                 userDetailsResponse.data?.let { userDetails ->
                     GetUserDetailsState.OnUserData(userDetails)
@@ -67,6 +71,10 @@ class UserDetailsViewModel @Inject constructor(
 
     fun getUserRepository(input: String) {
         viewModelScope.launch(dispatcher + coroutineExceptionHandler) {
+            _userRepositoryState.emit(
+                GetUserRepositoryState
+                    .IsLoading
+            )
             getUserRepositories.invoke(input).let { items ->
                 items.data?.let { repositories ->
                     if (repositories.isEmpty()) {

@@ -5,7 +5,7 @@ import com.mdoc.smartone_git_demo.domain.UserDetailsRepository
 import com.mdoc.smartone_git_demo.domain.gitresponse.getUserDetails.UserDetails
 import com.mdoc.smartone_git_demo.domain.gitresponse.getUserRepositories.UserRepositories
 
-class FakeUserDetailsRepositoryImpl : UserDetailsRepository {
+class FakeUserDetailsRepository : UserDetailsRepository {
 
     private var throwError = false
 

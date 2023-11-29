@@ -65,15 +65,6 @@ class MainActivity : ComponentActivity() {
                         )
                     )
                 }
-
-                // Using a default value so that we see some data when we start the application.
-                val defaultInput = getString(R.string.default_userId)
-
-                // Method to fetch user details via /user/{userId}
-                userDetailsViewModel.getGitUser(defaultInput)
-
-                // Method to fetch user repositories via /user/{userId}/repo
-                userDetailsViewModel.getUserRepository(defaultInput)
             }
         }
     }

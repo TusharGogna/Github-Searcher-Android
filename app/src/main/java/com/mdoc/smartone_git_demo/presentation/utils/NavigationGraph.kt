@@ -10,7 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.mdoc.smartone_git_demo.domain.gitresponse.getUserRepositories.UserRepositories
+import com.mdoc.smartone_git_demo.domain.models.Repositories
 import com.mdoc.smartone_git_demo.presentation.screen_repositorydetails.RepositoryDetailsScreen
 import com.mdoc.smartone_git_demo.presentation.screen_userdetails.DetailsScreen
 import com.mdoc.smartone_git_demo.presentation.UserDetailsViewModel
@@ -41,7 +41,7 @@ fun SetupNavigationGraph(
         ) {
             val gson: Gson = GsonBuilder().create()
             val repositoryJson = it.arguments?.getString("repositoryJson")
-            val userRepositoriesObj = gson.fromJson(repositoryJson, UserRepositories::class.java)
+            val userRepositoriesObj = gson.fromJson(repositoryJson, Repositories::class.java)
 
             RepositoryDetailsScreen(
                 navHostController,

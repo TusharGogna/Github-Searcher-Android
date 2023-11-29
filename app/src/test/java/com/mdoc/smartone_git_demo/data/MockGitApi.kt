@@ -6,7 +6,6 @@ import com.mdoc.smartone_git_demo.utils.ObjectsHelper
 import kotlinx.coroutines.test.runTest
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
-import org.junit.After
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -23,7 +22,7 @@ class MockGitApi {
     }
 
     @Test
-    fun GetUserDetails_Successfully() = runTest {
+    fun getUserDetails_Successfully() = runTest {
         val content = JsonHelper.readFileResource("/user.json")
         val mockResponse = MockResponse()
             .setBody(content)
@@ -35,12 +34,12 @@ class MockGitApi {
         Assert.assertEquals(true, response.body() != null)
         Assert.assertEquals("TusharGogna", response.body()!!.login)
         Assert.assertEquals(null, response.body()!!.name)
-        Assert.assertEquals("https://www.testimage.com", response.body()!!.avatar_url)
+        Assert.assertEquals("https://www.testimage.com", response.body()!!.avatarUrl)
 
     }
 
     @Test
-    fun GetUserDetails_Failed() = runTest {
+    fun getUserDetails_Failed() = runTest {
         val mockResponse = MockResponse()
             .setBody("Unknown Error Occurred!")
             .setResponseCode(400)
@@ -67,7 +66,7 @@ class MockGitApi {
         Assert.assertEquals("Backboard", response.body()!![0].name)
         Assert.assertEquals(
             "https://github.com/TusharGogna/Backboard",
-            response.body()!![0].html_url
+            response.body()!![0].htmlUrl
         )
         Assert.assertEquals(
             "A motion-driven animation framework for Android.",
@@ -75,11 +74,11 @@ class MockGitApi {
         )
         Assert.assertEquals(
             "2021-09-19T06:27:58Z",
-            response.body()!![0].updated_at
+            response.body()!![0].updatedAt
         )
         Assert.assertEquals(0, response.body()!![0].forks)
-        Assert.assertEquals(0, response.body()!![0].stargazers_count)
-        Assert.assertEquals(0, response.body()!![0].total_forks)
+        Assert.assertEquals(0, response.body()!![0].stargazersCount)
+        Assert.assertEquals(0, response.body()!![0].totalForks)
         Assert.assertEquals(null, response.body()!![0].language)
     }
 

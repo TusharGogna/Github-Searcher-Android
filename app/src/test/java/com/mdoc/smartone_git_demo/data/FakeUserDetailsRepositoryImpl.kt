@@ -63,7 +63,7 @@ class FakeUserDetailsRepositoryImpl : UserDetailsRepository {
             Assert.assertEquals("Backboard", response.body()!![0].name)
             Assert.assertEquals(
                 "https://github.com/TusharGogna/Backboard",
-                response.body()!![0].html_url
+                response.body()!![0].htmlUrl
             )
             Assert.assertEquals(
                 "A motion-driven animation framework for Android.",
@@ -71,7 +71,7 @@ class FakeUserDetailsRepositoryImpl : UserDetailsRepository {
             )
             Assert.assertEquals(
                 "2021-09-19T06:27:58Z",
-                response.body()!![0].updated_at
+                response.body()!![0].updatedAt
             )
             Resource.success(response.body())
         }

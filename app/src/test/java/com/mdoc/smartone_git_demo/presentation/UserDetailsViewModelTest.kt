@@ -1,8 +1,8 @@
 package com.mdoc.smartone_git_demo.presentation
 
 import com.mdoc.smartone_git_demo.core.Resource
-import com.mdoc.smartone_git_demo.domain.gitresponse.getUserDetails.UserDetails
-import com.mdoc.smartone_git_demo.domain.gitresponse.getUserRepositories.UserRepositories
+import com.mdoc.smartone_git_demo.domain.models.GitAccountDetails
+import com.mdoc.smartone_git_demo.domain.models.Repositories
 import com.mdoc.smartone_git_demo.domain.states.GetUserDetailsState
 import com.mdoc.smartone_git_demo.domain.states.GetUserRepositoryState
 import com.mdoc.smartone_git_demo.domain.usecases.userdetails.GetSpecificGitUser
@@ -37,13 +37,22 @@ class UserDetailsViewModelTest {
 
         runTest {
             Mockito.`when`(getUserDetailsUseCase.invoke(anyString())).thenReturn(
-                Resource.success(UserDetails(null, "TusharGogna", "www.test.com"))
+                Resource.success(GitAccountDetails(null, "TusharGogna", "www.test.com"))
             )
 
             Mockito.`when`(getUserRepositoriesUseCase.invoke(anyString())).thenReturn(
                 Resource.success(
                     listOf(
-                        UserRepositories("Blackboard", "", "", 0, 0, 0, "", null)
+                        Repositories(
+                            "Blackboard",
+                            "",
+                            "",
+                            0,
+                            0,
+                            0,
+                            "",
+                            null
+                        )
                     )
                 )
             )

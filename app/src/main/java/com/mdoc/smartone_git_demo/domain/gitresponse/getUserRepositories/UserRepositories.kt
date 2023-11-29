@@ -1,8 +1,7 @@
 package com.mdoc.smartone_git_demo.domain.gitresponse.getUserRepositories
 
-import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
+import com.mdoc.smartone_git_demo.domain.models.Repositories
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /*Data class to get the list of all the repositories of the given user from the API.
@@ -13,15 +12,28 @@ updated_at is a String type parameter which represents time when the repository 
 stargazers_count is an Int type parameter which represents total number of times this repository is starred.
 forks is an Int type parameter which represents total number of times this repository is forked.
 */
-@Parcelize
 @Serializable
 data class UserRepositories(
-    @SerializedName("name") val name: String,
-    @SerializedName("description") val description: String?,
-    @SerializedName("updated_at") val updatedAt: String,
-    @SerializedName("stargazers_count") val stargazersCount: Int = 0,
-    @SerializedName("forks") val forks: Int = 0,
-    @SerializedName("total_forks") var totalForks: Int = 0,
-    @SerializedName("html_url") val htmlUrl: String,
-    @SerializedName("language") val language: String?
-) : Parcelable
+    val name: String,
+    val description: String?,
+    @SerialName(value = "updated_at")
+    val updatedAt: String,
+    @SerialName(value = "stargazers_count")
+    val stargazersCount: Int = 0,
+    val forks: Int = 0,
+    var totalForks: Int = 0,
+    @SerialName(value = "html_url")
+    val htmlUrl: String,
+    val language: String?
+)
+
+fun UserRepositories.toRepositories() = Repositories(
+    name = name,
+    description = description,
+    updatedAt = updatedAt,
+    stargazersCount = stargazersCount,
+    forks = forks,
+    totalForks = totalForks,
+    htmlUrl = htmlUrl,
+    language = language
+)

@@ -34,13 +34,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.mdoc.smartone_git_demo.R
-import com.mdoc.smartone_git_demo.domain.gitresponse.getUserRepositories.UserRepositories
+import com.mdoc.smartone_git_demo.domain.models.Repositories
 import com.mdoc.smartone_git_demo.presentation.screen_repositorydetails.components.LoadRepositoryProperties
 
 @Composable
 fun RepositoryDetailsScreen(
     navHostController: NavHostController,
-    userRepositories: UserRepositories,
+    userRepositories: Repositories,
     modifier: Modifier
 ) {
     var isDateShown by remember {
@@ -60,7 +60,7 @@ fun RepositoryDetailsScreen(
                 .align(CenterHorizontally),
             text = userRepositories.name,
             fontWeight = FontWeight.Bold,
-            fontSize = 32.sp,
+            fontSize = 28.sp,
             textAlign = TextAlign.Center
         )
 
