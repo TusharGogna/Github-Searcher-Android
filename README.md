@@ -19,7 +19,7 @@ This is a test repository created as per the requirments laid down by SmartOne t
 
 The flow is as following:
 - On Start Up, the Splash Screen with animation is loaded.
-- After that, default UserId is used to load my personal Github details and Repositories.
+- After that, you will see an empty screen with default text suggesting you to search for an ID.
 - On the same page i.e. Home Page, the user can also enter any other UserId in the TextField and click on Search button to fetch that user's Github details.
 - If you click on any of the Repositories, then you will navigate to a new Compose Screen where details related to that repository is disaplyed.
 - There are two buttons provided on this screen: 1. Visit Repository 2. Go Back.
