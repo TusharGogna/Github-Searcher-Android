@@ -38,12 +38,12 @@ fun LoadRepositoryProperties(userRepositories: UserRepositories) {
         mutableStateOf(
             listOf(
                 SpecificRepositoryItems(
-                    "${userRepositories.total_forks}",
+                    "${userRepositories.totalForks}",
                     R.drawable.total_fork,
                     true
                 ),
                 SpecificRepositoryItems(
-                    "Stars: ${userRepositories.stargazers_count}",
+                    "Stars: ${userRepositories.stargazersCount}",
                     R.drawable.star,
                     false
                 ),

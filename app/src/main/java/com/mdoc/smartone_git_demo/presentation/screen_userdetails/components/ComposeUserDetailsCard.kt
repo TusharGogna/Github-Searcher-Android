@@ -101,7 +101,7 @@ private fun LoadUserDetailsCard(modifier: Modifier, state: UserDetails) {
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(state.avatar_url)
+                .data(state.avatarUrl)
                 .crossfade(true)
                 .build(),
             placeholder = painterResource(R.drawable.git),

@@ -116,7 +116,7 @@ private fun LoadRepositories(userRepos: List<UserRepositories>, navController: N
             val forks = userRepos.map {
                 it.forks
             }
-            repositoryItem.total_forks = forks.sum()
+            repositoryItem.totalForks = forks.sum()
             RepositoryItem(repositoryItem, navController)
         }
     }

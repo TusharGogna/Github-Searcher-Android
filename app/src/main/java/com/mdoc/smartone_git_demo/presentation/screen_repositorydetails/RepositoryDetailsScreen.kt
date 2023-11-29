@@ -103,7 +103,7 @@ fun RepositoryDetailsScreen(
                             .fillMaxWidth()
                             .padding(8.dp)
                             .weight(0.1F),
-                        text = "Updated at: ${userRepositories.updated_at}",
+                        text = "Updated at: ${userRepositories.updatedAt}",
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Normal,
                     )
@@ -117,7 +117,7 @@ fun RepositoryDetailsScreen(
                 ) {
                     Button(
                         onClick = {
-                            uriHandler.openUri(userRepositories.html_url)
+                            uriHandler.openUri(userRepositories.htmlUrl)
                         },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = MaterialTheme.colorScheme.secondary

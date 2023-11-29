@@ -18,10 +18,10 @@ forks is an Int type parameter which represents total number of times this repos
 data class UserRepositories(
     @SerializedName("name") val name: String,
     @SerializedName("description") val description: String?,
-    @SerializedName("updated_at") val updated_at: String,
-    @SerializedName("stargazers_count") val stargazers_count: Int = 0,
+    @SerializedName("updated_at") val updatedAt: String,
+    @SerializedName("stargazers_count") val stargazersCount: Int = 0,
     @SerializedName("forks") val forks: Int = 0,
-    @SerializedName("total_forks") var total_forks: Int = 0,
-    @SerializedName("html_url") val html_url: String,
+    @SerializedName("total_forks") var totalForks: Int = 0,
+    @SerializedName("html_url") val htmlUrl: String,
     @SerializedName("language") val language: String?
 ) : Parcelable
