@@ -36,7 +36,7 @@ import androidx.navigation.NavHostController
 import com.mdoc.smartone_git_demo.R
 import com.mdoc.smartone_git_demo.domain.models.Repositories
 import com.mdoc.smartone_git_demo.presentation.screen_repositorydetails.components.LoadRepositoryProperties
-import com.mdoc.smartone_git_demo.presentation.utils.convertDate
+import com.mdoc.smartone_git_demo.presentation.utils.DateFormatHelper
 
 @Composable
 fun RepositoryDetailsScreen(
@@ -100,7 +100,9 @@ fun RepositoryDetailsScreen(
                             .fillMaxWidth()
                             .padding(8.dp)
                             .weight(0.1F),
-                        text = "Updated at: ${convertDate(userRepositories.updatedAt)}",
+                        text = "Updated at: ${
+                            DateFormatHelper().convertDate(userRepositories.updatedAt)
+                        }",
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Normal,
                     )
