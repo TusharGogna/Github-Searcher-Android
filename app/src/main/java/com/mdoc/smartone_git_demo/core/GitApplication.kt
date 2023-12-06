@@ -7,6 +7,6 @@ import dagger.hilt.android.HiltAndroidApp
 class GitApplication: Application()  {
     companion object{
         const val BASE_URL = "https://api.github.com/"
-        const val FORKS_CONDITION_COUNT = 5000
+        const val FORKS_CONDITION_COUNT = 100
     }
 }

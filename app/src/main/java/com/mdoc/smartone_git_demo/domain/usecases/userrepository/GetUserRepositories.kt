@@ -9,13 +9,15 @@ import com.mdoc.smartone_git_demo.domain.models.Repositories
 class GetUserRepositories(private val repository: UserDetailsRepository) {
 
     suspend operator fun invoke(userId: String): Resource<List<Repositories>?> {
-        val repositories = repository.getUserRepositories(userId).data?.map {
+        val repositories = repository.getUserRepositories(userId).data?.asSequence()?.map {
             it.toRepositories()
-        }
-        return if(!repositories.isNullOrEmpty()){
-            Resource(Status.SUCCESS, repositories, null)
-        }else{
-            Resource(Status.ERROR, repositories, null)
-        }
+        }?.toList()
+        return if (repositories != null) {
+             if(repositories.isNotEmpty()){
+                Resource(Status.SUCCESS, repositories, null)
+            }else{
+                Resource(Status.ERROR, repositories, null)
+            }
+        }else Resource(Status.ERROR, repositories, null)
     }
 }
