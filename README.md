@@ -1,7 +1,5 @@
-# Github-Api-Demo-SmartOne
-This is a test repository created as per the requirments laid down by SmartOne team.
+# Github-Searcher
 
-## <a href="https://github.com/TusharGogna/Github-Api-Demo-SmartOne/raw/main/app-debug.apk" download>Click to Download the APK file</a>
 
 ###### The application uses the following components:
 1. [Kotlin](https://kotlinlang.org/) as the base language.
@@ -30,6 +28,7 @@ Negative cases which are covered:
 - If user clicks on Search button without entering anything in the TextField, an error will be shown.
 - If there is no internet or the response fails, the corresponding error message will be shown.
 
+### More cases will be added soon.
 
 ## Here are few screenshots: 
 <img src="https://github.com/TusharGogna/Github-Api-Demo-SmartOne/assets/36148180/3dc13bf9-fd67-4bd4-be97-1d6dd642bd4f" width=50% height=50%>
@@ -39,7 +38,4 @@ This is the first screen which is displayed to the user. The Repository list is 
 <img src="https://github.com/TusharGogna/Github-Api-Demo-SmartOne/assets/36148180/e829ce1d-18c7-4e50-884d-dac11b474ebb" width=50% height=50%>
 
 This is a repository details screen. In this, you can scroll the properties related to the repository and view the things such as stars, forks, language used along with 2 aforementioned buttons
-
-
-Note: The application is tested on Pixel 6 running Android 14
    
